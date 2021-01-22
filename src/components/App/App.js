@@ -10,6 +10,13 @@ import './App.css'
 
 
 const App = () => {
+
+    const data = [
+        {label: 'hello', important: true, id: 1},
+        {label: 'How are you?', important: false, id: 2},
+        {label: 'bye', important: false, id: 3}
+    ];
+
     return (
         <div className="app">
             <AppHeader/>
@@ -17,7 +24,7 @@ const App = () => {
             <SearchInput/>
             <PostFilter/>
         </div>
-            <PostList />
+            <PostList posts={data} />
             <PostAddForm/>
         </div>
     )
