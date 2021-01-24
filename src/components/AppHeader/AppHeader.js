@@ -1,12 +1,24 @@
 import React from 'react'
-import './AppHeader.css'
+import styled from 'styled-components';
+
+const Header = styled.div`
+    display: flex;
+   align-items: flex-end;
+   justify-content:space-between; 
+   h1 {
+       font-size: 26px;
+       :hover {
+           color: green;
+       }
+   }
+`
 
 const AppHeader = () => {
     return (
-        <div className="app-header">
+        <Header>
             <h1>Natalia Orlova</h1>
             <h2>5 notes, liked 0</h2>
-        </div>
+        </Header>
     )
 }
 

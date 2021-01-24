@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PostAddForm = () => {
+const PostAddForm = ({addNote}) => {
     return (
         <form className="bottom-panel d-flex">
             <input
@@ -11,6 +11,7 @@ const PostAddForm = () => {
             <button 
             type="submit"
             className="btn btn-outline-secondary"
+            onClick={() => addNote('hi')}
             >
                 Add Post</button>
         </form>
