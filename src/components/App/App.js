@@ -23,12 +23,16 @@ export default class App extends Component  {
                 {label: 'How are you?', important: false, like: false, id: 2},
                 {label: 'bye', important: false, like: false, id: 3}
             ],
-            term: ''
+            term: '',
+            filter: 'all'
         }
         this.deleteItem = this.deleteItem.bind(this);
         this.addItem = this.addItem.bind(this);
         this.onToggleImportant = this.onToggleImportant.bind(this);
         this.onToggleLiked = this.onToggleLiked.bind(this);
+        this.onSearch = this.onSearch.bind(this);
+        this.filterPost = this.filterPost.bind(this);
+        this.onFilterSelect = this.onFilterSelect.bind(this);
 
         this.maxId = 4;
     }
@@ -100,13 +104,29 @@ export default class App extends Component  {
             return item.label.indexOf(term) > -1
         });
     }
+
+    filterPost(items, filter) {
+        if (filter === 'like') {
+            return items.filter(item => item.like)
+        } else {
+            return items
+        }
+    }
+
+    onSearch(term) {
+        this.setState({term});
+    }
+
+    onFilterSelect(filter) {
+        this.setState({filter});
+    }
    
     render() {
-        const {data, term } = this.state;
+        const {data, term, filter } = this.state;
         const liked = data.filter(item => item.like).length;
         const allNotes = data.length;
 
-        const visibleNotes = this.searchNotes(data, term);
+        const visibleNotes = this.filterPost(this.searchNotes(data, term), filter);
 
     return (
         <AppBlock>
@@ -114,8 +134,10 @@ export default class App extends Component  {
             liked={liked}
             allNotes={allNotes} />
         <div className="search-panel d-flex">
-            <SearchInput/>
-            <PostFilter/>
+            <SearchInput onSearch={this.onSearch} />
+            <PostFilter
+            filter={filter}
+            onFilterSelect={this.onFilterSelect} />
         </div>
             <PostList 
             posts={visibleNotes} 
