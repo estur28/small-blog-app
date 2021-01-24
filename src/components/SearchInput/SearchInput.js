@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {Component} from 'react'
 import './SearchInput.css'
 
-const SearchPanel = () => {
+export default class SearchPanel extends Component {
+   render() {
     return (
         <input
             className="form-control search-input"
@@ -9,6 +10,5 @@ const SearchPanel = () => {
             placeholder="Search notes"
         />
     )
+   }
 }
-
-export default SearchPanel
