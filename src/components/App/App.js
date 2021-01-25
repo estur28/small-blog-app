@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Col, Container, Row } from 'reactstrap'
 
 import AppHeader from '../AppHeader/AppHeader'
 import PostAddForm from '../PostAddForm/PostAddForm'
@@ -14,7 +15,7 @@ export default class App extends Component  {
         super(props);
         this.state = {
             data : [
-                // {label: 'hello', important: false, like: true, id: 1},
+                {label: 'Your post can be here...', important: false, like: false, id: 1}
                 // {label: 'How are you?', important: false, like: false, id: 2},
                 // {label: 'bye', important: false, like: false, id: 3}
             ],
@@ -124,25 +125,48 @@ export default class App extends Component  {
         const visibleNotes = this.filterPost(this.searchNotes(data, term), filter);
 
     return (
+    <Container>
         <AppBlock>
-            <AppHeader
-            liked={liked}
-            allNotes={allNotes} />
-        <div className="search-panel d-flex">
-            <SearchInput onSearch={this.onSearch} />
-            <PostFilter
-            filter={filter}
-            onFilterSelect={this.onFilterSelect} />
-        </div>
-            <PostList 
-            posts={visibleNotes} 
-            onDelete={this.deleteItem} 
-            onToggleImportant={this.onToggleImportant}
-            onToggleLiked={this.onToggleLiked}
-            />
-            <PostAddForm
-            addNote={this.addItem} />
-        </AppBlock>
+        <Row>
+            <Col>
+                <AppHeader
+                    liked={liked}
+                    allNotes={allNotes} />
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+                <div className="search-panel d-flex">
+                    <SearchInput onSearch={this.onSearch} />
+                </div>
+            </Col>
+            <Col>
+                <PostFilter
+                    filter={filter}
+                    onFilterSelect={this.onFilterSelect} />
+            </Col>
+        </Row>
+        
+
+        <Row>
+            <Col>
+                <PostList 
+                posts={visibleNotes} 
+                onDelete={this.deleteItem} 
+                onToggleImportant={this.onToggleImportant}
+                onToggleLiked={this.onToggleLiked}
+                />
+            </Col>
+            </Row>
+
+            <Row>
+            <Col>
+                <PostAddForm
+                addNote={this.addItem} />
+            </Col>
+                 </Row>
+            </AppBlock>
+        </Container>
      )
     }
 }
