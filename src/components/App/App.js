@@ -5,13 +5,8 @@ import PostAddForm from '../PostAddForm/PostAddForm'
 import PostFilter from '../PostFilter/PostFilter'
 import PostList from '../PostList/PostList'
 import SearchInput from '../SearchInput/SearchInput'
+import {AppBlock} from './App.styled'
 
-import styled from 'styled-components';
-
-const AppBlock = styled.div`
-    margin: 0 auto;
-    max-width: 800px;
-`
 
 
 export default class App extends Component  {
@@ -19,9 +14,9 @@ export default class App extends Component  {
         super(props);
         this.state = {
             data : [
-                {label: 'hello', important: true, like: false, id: 1},
-                {label: 'How are you?', important: false, like: false, id: 2},
-                {label: 'bye', important: false, like: false, id: 3}
+                // {label: 'hello', important: false, like: true, id: 1},
+                // {label: 'How are you?', important: false, like: false, id: 2},
+                // {label: 'bye', important: false, like: false, id: 3}
             ],
             term: '',
             filter: 'all'

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import './SearchInput.css'
+
+import './SearchInput.scss'
 
 export default class SearchPanel extends Component {
     constructor(props) {

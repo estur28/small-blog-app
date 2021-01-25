@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import './PostListItem.css'
+import './PostListItem.scss'
 
 export default class PostListItem extends Component {
    
@@ -22,7 +22,7 @@ export default class PostListItem extends Component {
             <div className={classNames}>
             <span 
             className="app-list-item-label"
-            onClick={this.onToggleLike}>
+            onClick={onToggleLiked}>
                 {label}
             </span>  
 
@@ -30,7 +30,7 @@ export default class PostListItem extends Component {
                 <button 
                 type="button" 
                 className="btn-star-half-o btn-sm"
-                onClick={this.onToggleImportant}>
+                onClick={onToggleImportant}>
                     <i className="fa fa-star-half-o"></i>
                 </button>
 
@@ -41,7 +41,7 @@ export default class PostListItem extends Component {
                     <i className="fa fa-trash-o"></i>
                 </button>
 
-                <i class="fa fa-heartbeat"></i>
+                <i className="fa fa-heartbeat"></i>
             </div>  
         </div>  
         )

@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+import './PostAddForm.scss'
+
 export default class PostAddForm extends Component  {
     constructor(props) {
     super(props);
@@ -39,9 +41,9 @@ export default class PostAddForm extends Component  {
             />
             <button 
             type="submit"
-            className="btn btn-outline-secondary"
+            className="btn btn-danger"
             >
-                Add Post</button>
+             Add Post</button>
         </form>
         )
     }
