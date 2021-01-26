@@ -138,12 +138,10 @@ export default class App extends Component  {
             <Col>
                 <div className="search-panel d-flex">
                     <SearchInput onSearch={this.onSearch} />
-                </div>
-            </Col>
-            <Col>
                 <PostFilter
                     filter={filter}
                     onFilterSelect={this.onFilterSelect} />
+                </div>
             </Col>
         </Row>
         
